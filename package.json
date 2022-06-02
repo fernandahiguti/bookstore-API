@@ -1,7 +1,7 @@
 {
   "name": "api-rest",
   "version": "1.0.0",
-  "description": "- Let's go!",
+  "description": "Library API",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/fernandahiguti/Rest-API.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fernanda Higuti",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fernandahiguti/Rest-API/issues"
