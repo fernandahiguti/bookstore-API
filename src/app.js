@@ -23,8 +23,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/livros', (req, res) => {
-  res.status(200)
-  .json(books);
+  books.find((error, books)=>{
+    res.status(200)
+    .json(books);
+  })
+ 
 })
 
 app.get('/livros/:id', (req, res) => {
