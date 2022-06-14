@@ -22,13 +22,7 @@ app.get('/', (req, res) => {
   .send("Curso de node");
 })
 
-app.get('/livros', (req, res) => {
-  books.find((error, books)=>{
-    res.status(200)
-    .json(books);
-  })
- 
-})
+
 
 app.get('/livros/:id', (req, res) => {
   let index = searchBook(req.params.id)
