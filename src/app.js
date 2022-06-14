@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./config/dbConnect.js"
 import books from "./models/Book.js"
+import routes from "./routes/index.js"
 
 db.on("error", console.log.bind(console, 'connection error'))
 
@@ -12,16 +13,7 @@ const app = express();
 
 app.use(express.json())
 
-// const books = [
-//  {id: 1, "title":"O Senhor dos Anéis"},
-//  {id: 2, "title":"O Hobbit"}
-//]
-
-app.get('/', (req, res) => {
-  res.status(200)
-  .send("Curso de node");
-})
-
+routes(app)
 
 
 app.get('/livros/:id', (req, res) => {
