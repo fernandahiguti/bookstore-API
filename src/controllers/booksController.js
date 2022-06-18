@@ -10,18 +10,26 @@ class bookController {
 
   static registerBook = (req, res) => {
     let book = new books(req.body);
-
     book.save((error) => {
-
       if(error){
         res.status(500).send({message: `${error.message} - failed to register book.`})
       } else {
         res.status(201).send(book.toJSON())
       }
     })
-
   }
 
+  static updateBook = (req, res) => {
+    const id = req.params.id;
+    books.findByIdAndUpdate(id, {$set: req.body}, (error)=>{
+      if(!error){
+        res.status(200).send({message: 'Sucessful book update.'})
+      } else {
+        res.status(500).send({message: error.message})
+      }
+    })
+  }
+  
 }
 
 export default bookController;
