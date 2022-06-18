@@ -8,6 +8,17 @@ class bookController {
     })
   }
 
+  static listBookById = (req, res) => {
+    const id = req.params.id;
+    books.findById(id,(error, books) => {
+      if (error) {
+        res.status(404).send({message: `${error.message} - book ID not found.` })
+      } else {
+        res.status(200).send({books})
+      }
+    })
+  }
+
   static registerBook = (req, res) => {
     let book = new books(req.body);
     book.save((error) => {
@@ -29,7 +40,7 @@ class bookController {
       }
     })
   }
-  
+
 }
 
 export default bookController;

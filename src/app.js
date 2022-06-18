@@ -15,12 +15,6 @@ app.use(express.json())
 
 routes(app)
 
-
-app.get('/livros/:id', (req, res) => {
-  let index = searchBook(req.params.id)
-  res.json(books[index])
-})
-
 app.delete('/livros/:id', (req, res) => {
   let {id} = req.params;
   let index = searchBook(id);
