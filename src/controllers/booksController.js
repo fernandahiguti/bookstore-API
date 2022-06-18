@@ -41,6 +41,17 @@ class bookController {
     })
   }
 
+  static deleteBook = (req, res) => {
+    const id = req.params.id;
+    books.findByIdAndDelete(id, (error) =>{
+      if(!error){
+        res.status(200).send({message:'Book was deleted successfully'})
+      } else {
+        res.status(500).send({message:`${error.message} - unable to delete requested book/id` })
+      }
+    })
+  }
+
 }
 
 export default bookController;
