@@ -56,6 +56,15 @@ class bookController {
     })
   }
 
+  static listBookByPublisher = (req, res) => {
+    const publisher = req.query.publisher
+    books.find({'publisher': publisher}, {}, (error, books) => {
+      res.status(200).send(books);
+      
+    })
+
+  }
+
 }
 
 export default bookController;
